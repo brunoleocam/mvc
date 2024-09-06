@@ -48,11 +48,15 @@ use Src\Class\ClassRoutes;
 
 // 5.
 
-    class Teste extends ClassRoutes {
-        public function __construct() {
-            $v = $this->getRota();
-            var_dump($v);
-        }
-    }
+    // class Teste extends ClassRoutes {
+    //     public function __construct() {
+    //         $v = $this->getRota();
+    //         var_dump($v);
+    //     }
+    // }
 
-    $new = new Teste();
+    // $new = new Teste();
+
+// 6.
+
+    $Dispatch = new App\Dispatch();
