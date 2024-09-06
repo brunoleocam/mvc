@@ -1,0 +1,8 @@
+# Ativa o mecanismo de reescrita do Apache
+RewriteEngine On
+
+# Condição: se o nome do arquivo solicitado não existir
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Regra de reescrita: redireciona todas as requisições para index.php, passando a URL original como parâmetro
+RewriteRule ^(.*)$ ./public/index.php?url=$1 [QSA,L]
