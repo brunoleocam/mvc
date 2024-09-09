@@ -58,5 +58,11 @@ use Src\Class\ClassRoutes;
     // $new = new Teste();
 
 // 6.
+    // session_start();
+    // $_SESSION['login'] = true;
 
     $Dispatch = new App\Dispatch();
+
+// 7.
+
+    // require_once(DIRREQ."app/view/Layout.php");

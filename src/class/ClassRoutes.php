@@ -38,7 +38,7 @@ class ClassRoutes {
             "sobre" => "ControllerSobre",
             "servicos" => "ControllerServicos",
             "contato" => "ControllerContato",
-            "carros" => "ControllerCarros"
+            "carros" => "ControllerCarros",
         );
 
         // Verifica se a rota existe no array de rotas
