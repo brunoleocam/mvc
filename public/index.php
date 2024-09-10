@@ -60,9 +60,13 @@ use Src\Class\ClassRoutes;
 // 6.
     // session_start();
     // $_SESSION['login'] = true;
-
     $Dispatch = new App\Dispatch();
 
 // 7.
 
     // require_once(DIRREQ."app/view/Layout.php");
+
+// 8.
+
+    // $n = new Src\Class\ClassBreadcrumb();
+    // $n->addBreadcrumb();

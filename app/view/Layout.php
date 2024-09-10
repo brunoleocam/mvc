@@ -17,6 +17,12 @@
     </div>
     <div class="Header">
         <img src="<?php echo DIRIMG.'Banner.jpg'; ?>" alt="Banner"><br>
+        <br><br><hr>
+        <?php
+            $BreadCrumb = new Src\Class\ClassBreadcrumb();
+            $BreadCrumb->addBreadcrumb();
+        ?>
+        <br><br>
         TEL.: (11) 9999-9999 <br>
         <?php echo $this->addHeader();?>
     </div>
