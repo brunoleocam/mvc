@@ -44,4 +44,27 @@ class ControllerCadastro extends ClassCadastro {
         echo "Cadastrado com sucesso!";
     }
 
+    public function seleciona(){
+        $this -> recVariaveis();
+        $B = $this -> selecionaClientes($this -> Nome, $this -> Sexo, $this -> Cidade);
+
+        echo "<table border='1'>
+                <tr>
+                    <td>Nome</td>
+                    <td>Sexo</td>
+                    <td>Cidade</td>
+                </tr>
+            ";
+
+        foreach($B as $V){
+            echo "<tr>
+                    <td>".$V['Nome']."</td>
+                    <td>".$V['Sexo']."</td>
+                    <td>".$V['Cidade']."</td>
+                </tr>";
+        }
+
+        echo "</table>";
+    }
+
 }
