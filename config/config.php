@@ -19,7 +19,7 @@ define('DIRVIDEO',DIRPAGE."/public/video/");
 
 #Acesso ao banco de dados
 define('HOST',"localhost");
-define('DB',"mvc");
+define('DB',"sistema");
 define('USER',"root");
 define('PASS',"");
 
