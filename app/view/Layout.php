@@ -14,6 +14,7 @@
     <div class="Nav">
         <a href="<?php echo DIRPAGE;?>">Home</a>
         <a href="<?php echo DIRPAGE.'contato';?>">Contato</a>
+        <a href="<?php echo DIRPAGE.'cadastro';?>">Cadastro</a>
     </div>
     <div class="Header">
         <img src="<?php echo DIRIMG.'Banner.jpg'; ?>" alt="Banner"><br>

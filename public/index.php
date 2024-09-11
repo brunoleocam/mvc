@@ -60,7 +60,7 @@ use Src\Class\ClassRoutes;
 // 6.
     // session_start();
     // $_SESSION['login'] = true;
-    // $Dispatch = new App\Dispatch();
+    $Dispatch = new App\Dispatch();
 
 // 7.
 
@@ -73,5 +73,5 @@ use Src\Class\ClassRoutes;
 
 // 9.
 
-    $n = new App\Model\ClassConexao();
-    var_dump($n->conexaoDB());
+    // $n = new App\Model\ClassConexao();
+    // var_dump($n->conexaoDB());
