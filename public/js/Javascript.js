@@ -17,4 +17,21 @@ $(document).ready(function(){
             }
         });
     });
+
+    $(document).on('click','.ImageEdit',function(){
+        var ImgRel = $(this).attr('rel');
+        // console.log(ImgRel);
+        
+        // console.log(DIRPAGE + 'cadastro/puxarDB/'+ImgRel);
+        $.ajax({
+            url: DIRPAGE + 'cadastro/puxarDB/'+ImgRel,
+            method:'post',
+            dataType:'html',
+            data: {'Id':ImgRel},
+            success:function(data){
+                $('.ResultadoFormulario').html(data);
+            }
+        });
+    });
+
 });

@@ -69,7 +69,7 @@ class ControllerCadastro extends ClassCadastro {
 
         foreach($B as $V){
             echo "<tr>
-                    <td><input type='checkbox' id='Id' name='Id[]' value='$V[Id]'></td>
+                    <td><input type='checkbox' id='Id' name='Id[]' value='$V[Id]'><img class='ImageEdit' rel='$V[Id]' src='".DIRIMG."edit.png' alt='Editar'></td>
                     <td>".$V['Nome']."</td>
                     <td>".$V['Sexo']."</td>
                     <td>".$V['Cidade']."</td>
@@ -89,6 +89,46 @@ class ControllerCadastro extends ClassCadastro {
         foreach($this -> Id as $IdDeletar){
             $this -> deletarClientes($IdDeletar);
         }
+    }
+
+    #Puxar dados do DB
+    public function puxarDB($Id){
+        $this -> recVariaveis();
+        $B = $this -> selecionaClientes($this -> Nome, $this -> Sexo, $this -> Cidade);
+
+        foreach($B as $C){
+            // var_dump($C);
+            if($C['Id'] == $Id){
+                $Nome = $C['Nome'];
+                $Sexo = $C['Sexo'];
+                $Cidade = $C['Cidade'];
+            }
+        }
+
+        echo "
+            <form name='FormAtualizar' id='FormAtualizar' action='".DIRPAGE."cadastro/atualizar' method='post'>
+                <input type='hidden' name='Id' id='Id' value='$Id'><br>
+                <label>Nome:</label>
+                <input type='text' name='Nome' id='Nome' value='{$Nome}'><br>
+                <label>Sexo:</label>
+                <select name='Sexo' id='Sexo'>
+                    <option value='$Sexo'>$Sexo</option>
+                    <option value='Masculino'>Masculino</option>
+                    <option value='Feminino'>Feminino</option>
+                </select><br>
+                <label>Cidade:</label>
+                <input type='text' name='Cidade' id='Cidade' value='$Cidade'><br>
+                <input type='submit' value='Atualizar'><br>
+            </form>
+        ";
+    }
+
+    #Atualizar dados dos clientes
+    public function atualizar(){
+
+        $this -> recVariaveis();
+        $this -> atualizarClientes($this->Id, $this->Nome, $this->Sexo, $this->Cidade);
+        echo "Atualizado com sucesso!";
     }
 
 }
