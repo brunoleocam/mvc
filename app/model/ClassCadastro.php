@@ -12,10 +12,10 @@ class ClassCadastro extends ClassConexao {
     protected function cadastroClientes($nome, $sexo, $cidade){
         $id=0;
         $this->db = $this->conexaoDB() -> prepare("INSERT INTO teste VALUES (:id, :nome, :sexo, :cidade)");
-        $this->db -> bindValue(":id", $id, \PDO::PARAM_INT);
-        $this->db -> bindValue(":nome", $nome, \PDO::PARAM_STR);
-        $this->db -> bindValue(":sexo", $sexo, \PDO::PARAM_STR);
-        $this->db -> bindValue(":cidade", $cidade, \PDO::PARAM_STR);
+        $this->db -> bindParam(":id", $id, \PDO::PARAM_INT);
+        $this->db -> bindParam(":nome", $nome, \PDO::PARAM_STR);
+        $this->db -> bindParam(":sexo", $sexo, \PDO::PARAM_STR);
+        $this->db -> bindParam(":cidade", $cidade, \PDO::PARAM_STR);
         $this->db -> execute();
     }
 
@@ -27,20 +27,28 @@ class ClassCadastro extends ClassConexao {
         
 
         $BFetch = $this->db = $this->conexaoDB() -> prepare("SELECT * FROM teste WHERE Nome like :nome AND Sexo like :sexo AND Cidade like :cidade");
-        $BFetch -> bindValue(":nome", $nome, \PDO::PARAM_STR);
-        $BFetch -> bindValue(":sexo", $sexo, \PDO::PARAM_STR);
-        $BFetch -> bindValue(":cidade", $cidade, \PDO::PARAM_STR);
+        $BFetch -> bindParam(":nome", $nome, \PDO::PARAM_STR);
+        $BFetch -> bindParam(":sexo", $sexo, \PDO::PARAM_STR);
+        $BFetch -> bindParam(":cidade", $cidade, \PDO::PARAM_STR);
         $BFetch -> execute();
 
         $I = 0;
         while($Fetch=$BFetch->fetch(\PDO::FETCH_ASSOC)){
             $Array[$I] = [
-                "Nome"=>$Fetch['Nome'],
-                "Sexo"=>$Fetch['Sexo'],
-                "Cidade"=>$Fetch['Cidade']
+                'Id'=>$Fetch['Id'],
+                'Nome'=>$Fetch['Nome'],
+                'Sexo'=>$Fetch['Sexo'],
+                'Cidade'=>$Fetch['Cidade']
             ];
             $I++;
         }
         return $Array;
+    }
+
+    #Deletar direto no banco
+    protected function deletarClientes($Id){
+        $BFetch = $this->db = $this->conexaoDB() -> prepare("DELETE FROM teste WHERE Id = :Id");
+        $BFetch -> bindParam(":Id", $Id, \PDO::PARAM_INT);
+        $BFetch -> execute();
     }
 }
