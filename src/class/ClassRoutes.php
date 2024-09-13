@@ -37,6 +37,7 @@ class ClassRoutes {
             "sitemap" => "ControllerSitemap",
             "carros" => "ControllerCarros",
             "contato" => "ControllerContato",
+            "login" => "ControllerLogin",
             "cadastro" => "ControllerCadastro"
         );
 
